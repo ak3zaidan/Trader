@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Multi-Threaded Stock Trading Bot
 
 ## Overview
@@ -232,3 +233,6 @@ This software is for educational and research purposes only. Trading involves su
 ## License
 
 This project is provided as-is for educational purposes. Use at your own risk.
+=======
+# Trader
+>>>>>>> 6ae2aeea367fe74f4bc852e125fa91e9e816d862
