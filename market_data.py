@@ -1,6 +1,5 @@
 from ibapi.contract import Contract
 from app import TradeApp
-from utils import *
 
 class MarketData:
     def __init__(self, app: TradeApp):
@@ -18,29 +17,6 @@ class MarketData:
         contract.exchange = exchange
         contract.currency = currency
         return contract
-
-    def get_historical_data(self, symbol, interval: Interval):
-        req_id = self._next_req_id()
-        contract = self._create_contract(symbol)
-
-        self.app.data_end_event.clear()
-        self.app.reqHistoricalData(
-            reqId=req_id,
-            contract=contract,
-            endDateTime="",
-            durationStr=interval.duration,
-            barSizeSetting=interval.bar_size,
-            whatToShow="TRADES",
-            useRTH=0,
-            formatDate=1,
-            keepUpToDate=False,
-            chartOptions=[]
-        )
-
-        # wait until data ends
-        self.app.data_end_event.wait(timeout=15)
-        bars = self.app.historical_data.pop(req_id, [])
-        return bars
 
     def is_tradable(self, symbol: str) -> bool:
         """

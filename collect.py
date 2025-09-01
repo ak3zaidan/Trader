@@ -1,3 +1,4 @@
+from config import polygon_api_key
 from typing import List
 import requests
 import json
@@ -151,15 +152,12 @@ def save_tickers_to_file(tickers: List[str], filename: str = "tickers.json") -> 
     except IOError as e:
         print(f"Error saving to file: {e}")
 
-def main():
-    # Your API key
-    API_KEY = "CpZj6msyprLmcgjcsDABdog6B1OBdHtj"
-    
+def main(): 
     # Load existing tickers first
     existing_tickers = load_existing_tickers("tickers.json")
     
     # Fetch all tickers from Polygon API
-    polygon_tickers = fetch_all_tickers(API_KEY, delay=0.1)
+    polygon_tickers = fetch_all_tickers(polygon_api_key, delay=0.1)
     
     # Load SEC tickers
     sec_tickers = load_sec_tickers("sec_tickers.json")

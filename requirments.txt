@@ -1,0 +1,7 @@
+polygon-api-client
+ibapi
+requests
+websocket-client
+colorama
+pandas
+numpy
