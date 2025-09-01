@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Multi-Threaded Stock Trading Bot
 
 ## Overview
